@@ -1,0 +1,19 @@
+<mat-list class="logo-sidemenu" routerLink="/">
+        <mat-list-item class="logo">
+          <mat-icon mat-list-icon>restaurant_menu</mat-icon>
+          <h4 mat-line>RESTO</h4>
+          <p mat-line style="font-size: 0.7em"> management system </p>
+        </mat-list-item>
+    </mat-list>
+    
+    <mat-nav-list class="nav-sidemenu">
+        <a class="nav-item"
+        mat-list-item
+        [routerLink]="[menuItem.url]"
+        [routerLinkActive]="['active-route']"
+        [routerLinkActiveOptions]="menuItem.text === 'Home' ? {exact: true} : ''"
+        *ngFor="let menuItem of menuItems">
+            <mat-icon>{{menuItem.icon}}</mat-icon>
+            <span class="nav-caption">{{menuItem.text}}</span>
+        </a>
+    </mat-nav-list>

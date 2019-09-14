@@ -1,0 +1,29 @@
+.breadcrumbs {
+  & .breadcrumb-title {
+    font-size: 1em;
+    margin:0;
+    & * {
+      list-style: none;
+      text-decoration: none;
+      color: #283847;
+    }
+  }
+
+  & .breadcrumb-path {
+    font-size: 0.6em;
+    margin:0;
+    margin-top: -10px;
+    & * {
+      list-style: none;
+      text-decoration: none;
+      color: #283847;
+    }
+
+    & .path-item:last-child {
+      font-weight: bold;
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  }
+}

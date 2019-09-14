@@ -1,0 +1,40 @@
+.nav-sidemenu {
+  overflow: hidden !important;
+  padding: 0 !important;
+  & .nav-item {
+    color: #a0adbd;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  & .nav-title {
+    margin: 0;
+    padding-left: 15px !important;
+  }
+
+  & .nav-item:hover {
+    background: #283847;
+    color: #fbfcff;
+  }
+
+  & .nav-item.active-route {
+    background: #283847;
+    color: #fbfcff !important;
+    border-left: solid 3px #5da3b8;
+  }
+
+  mat-icon {
+    padding-right: 35px;
+  }
+}
+
+.logo-sidemenu {
+  overflow: hidden !important;
+  padding: 0 !important;
+
+  & .logo {
+    height: 142px !important;
+    color: #fbfcff !important;
+    background: #243545;
+  }
+}

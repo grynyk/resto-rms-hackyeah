@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+* {
+  font-family: "Monda", sans-serif;
+}
+
+mat-form-field {
+  font-size: 14px !important;
+  margin-bottom: -2em;
+}
+
+input {
+  background: none !important;
+}
+
+mat-chip {
+  font-size: 12px !important;
+  border-radius: 4px !important;
+}
+
+button {
+  font-size: 12px !important;
+}
+
+.dialog-title {
+  padding-bottom:10px!important;
+  margin-bottom: 10px!important;
+  width: 100%;
+  font-weight: bold;
+}

@@ -1,0 +1,28 @@
+.sidenav-container{
+    height:100vh;
+    background: rgb(243,243,245)!important;
+
+    & .sidemenu{
+        cursor: pointer;
+        background: #2F4050;
+        transition: 0.2s;
+    }
+
+    & .sidemenu:hover{
+        transition: 0.3s;
+    }
+
+
+    & .sidenav-content{
+        margin:10px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 599px){
+    mat-sidenav{
+        width: 180px;
+    }
+}

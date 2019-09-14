@@ -1,0 +1,18 @@
+<div class="breadcrumbs">
+    <ul fxLayout="row" class="breadcrumb-title">
+        <li *ngFor="let breadcrumb of (breadcrumbs$ | async );let i = index" class="breadcrumb-item">
+          <span *ngIf="i==(breadcrumbs$ | async)?.length-1">
+            {{ breadcrumb.label }}
+          </span>
+        </li>
+      </ul>
+      
+      <ul class="breadcrumb-path" fxLayout="row" fxLayoutGap="5px">
+        <li *ngFor="let breadcrumb of (breadcrumbs$ | async );let i = index" class="path-item">
+          <a [routerLink]="[breadcrumb.url, breadcrumb.params]">
+            {{ breadcrumb.label }}
+          </a>
+          <span style="margin-left:5px;margin-right:5px" *ngIf="i!==(breadcrumbs$ | async)?.length-1">/</span>
+        </li>
+      </ul>
+</div>

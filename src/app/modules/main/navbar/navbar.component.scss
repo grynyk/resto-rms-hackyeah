@@ -1,0 +1,33 @@
+.top-header{
+    background: #F3F3F5;
+    border-bottom:solid 1px rgb(231, 234, 236);
+    height: 50px;
+    .staff-info-title {
+        font-size: 0.7em;
+    }
+    & .top-right-links{
+        color: #989E9C!important;
+        cursor: pointer;
+        margin-bottom: 13px;
+        li {
+            font-size: 0.8em!important;
+            mat-icon {
+                font-size: 1.4em!important;
+            }
+            &:hover{
+                color: #283847!important;
+            }
+        }
+
+    }
+
+    & a{
+        text-decoration: none;
+    }
+}
+
+.bottom-header{
+    background: #FFF;
+    border-bottom:solid 1px rgb(231, 234, 236);
+    height: 60px;
+}

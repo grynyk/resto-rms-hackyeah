@@ -1,0 +1,24 @@
+.content:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  
+    display: block;
+    background-image: url(https://cdn.wallpaper.com/main/2018/02/philadelphia-restaurants_walnut-street-cafe.jpg);
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+   
+    filter: blur(3px);
+  }
+
+  .layer {
+    background-color: rgba(0,0,0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
