@@ -11,12 +11,9 @@ export class SidemenuComponent implements OnInit {
   menuItems: { icon: string, text: string, url: string, children?: any }[] = [
     { 'icon': 'home', 'text': 'Home', 'url': '', 'children': [] },
     { 'icon': 'group_work', 'text': 'Tables', 'url': '/service', 'children': []  },
-    { 'icon': 'shop_two', 'text': 'Inventory', 'url': '/inventory', 'children': [
-      { 'icon': 'group_work', 'text': 'Tables list', 'url': '#' },
-      { 'icon': 'fastfood', 'text': 'Dishes list', 'url': '#' }
-    ] },
-    { 'icon': 'assignment_ind', 'text': 'Link 3', 'url': '#', 'children': []  },
-    { 'icon': 'info', 'text': 'Link 4', 'url': '#', 'children': []  }
+    { 'icon': 'shop_two', 'text': 'Inventory', 'url': '/inventory', 'children': [] },
+    { 'icon': 'assignment_ind', 'text': 'Reports', 'url': '#', 'children': []  },
+    { 'icon': 'info', 'text': 'Support', 'url': '#', 'children': []  }
   ];
 
   constructor(private router: Router) {}

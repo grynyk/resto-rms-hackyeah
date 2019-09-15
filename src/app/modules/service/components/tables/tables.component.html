@@ -10,7 +10,9 @@
                #{{table.number}}
              </div>
           <div fxFlex>
-             {{table.status}}
+             <span *ngIf="table.status === 0">Empty</span>
+             <span *ngIf="table.status === 1">Occupied</span>
+             <span *ngIf="table.status === 2">Served</span>
           </div>
     </div>
        <div fxFlex fxLayoutAlign="center center" class="update-btn">

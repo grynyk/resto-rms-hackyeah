@@ -5,10 +5,10 @@
           </span>
         <mat-form-field appearance="outline">
             <mat-label>STATUS</mat-label>
-            <mat-select>
-              <mat-option value="empty">Empty</mat-option>
-              <mat-option value="occupied">Occupied</mat-option>
-              <mat-option value="served">Served</mat-option>
+            <mat-select [(ngModel)]="newStatusOfTable" (ngModelChange)="onStatusChange($event)">
+              <mat-option value="0">Empty</mat-option>
+              <mat-option value="1">Occupied</mat-option>
+              <mat-option value="2">Served</mat-option>
             </mat-select>
           </mat-form-field>
           <button mat-stroked-button style="margin-top: 15px" color="primary" (click)="addFormVisible = !addFormVisible">
@@ -24,16 +24,15 @@
           <form #addForm *ngIf="addFormVisible" style="width: 100%" fxLayout="row">
               <mat-form-field fxFlex appearance="outline">
                   <mat-label>Dish</mat-label>
-                <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+                <input matInput placeholder="Lasagne" aria-label="Dish" [matAutocomplete]="auto" [formControl]="dishCtrl">
                 <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
-                    <img aria-hidden [src]="state.flag" height="25">
-                    <span>{{state.name}}</span> |
-                    <small>Population: {{state.population}}</small>
+                  <mat-option *ngFor="let dish of filteredDishes | async" [value]="dish.name">
+                    <span>{{dish.name}}</span> |
+                    <small>Price: {{dish.price}}</small>
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
-              <button mat-raised-button style="margin-left: 10px; margin-top:8px" color="primary">SUBMIT</button>
+              <button mat-raised-button style="margin-left: 10px; margin-top:8px" color="primary"><mat-icon>check</mat-icon></button>
             </form>
     </div>
     <div fxFlex="50" fxLayout="column" class="receipt-column">

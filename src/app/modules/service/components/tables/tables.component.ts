@@ -16,6 +16,10 @@ export class TablesComponent implements OnInit {
   constructor(public dialog: MatDialog, private serviceModuleService: ServiceModuleService) { }
 
   ngOnInit() {
+    this.refresh();
+  }
+
+  refresh() {
     this.serviceModuleService.getTablesList().subscribe((res: Table[]) => {
       this.tablesData = res;
     });
@@ -29,7 +33,7 @@ export class TablesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('u');
+        this.refresh();
       }
     });
   }
