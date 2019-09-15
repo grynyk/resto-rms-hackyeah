@@ -32,9 +32,7 @@ export class TablesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.refresh();
-      }
+      this.refresh();
     });
   }
 
