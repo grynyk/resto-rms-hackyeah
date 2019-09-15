@@ -8,11 +8,13 @@ import { RouterModule } from '@angular/router';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonDialogComponent } from './components/common-dialog/common-dialog.component';
 
 
 @NgModule({
   declarations: [
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CommonDialogComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +24,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgMaterialMultilevelMenuModule,
   ], exports: [
     SimpleNotificationsModule,
+    CommonDialogComponent,
     BreadcrumbComponent,
     NgMaterialMultilevelMenuModule,
-  ], providers:[
+  ], providers: [
     NotificationService
+  ],
+  entryComponents: [
+    CommonDialogComponent
   ]
 })
 export class SharedModule { }

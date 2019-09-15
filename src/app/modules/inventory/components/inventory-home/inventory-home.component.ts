@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { Dish } from '../../../shared/models/dish';
 import { Table } from '../../../shared/models/table';
+import { CommonDialogComponent } from 'src/app/modules/shared/components/common-dialog/common-dialog.component';
+import { InventoryEditDialogComponent } from '../inventory-edit-dialog/inventory-edit-dialog.component';
 
 @Component({
   selector: 'app-inventory-home',
@@ -10,10 +12,12 @@ import { Table } from '../../../shared/models/table';
 })
 export class InventoryHomeComponent implements OnInit {
 
-  tablesDisplayedColumns = ['number', 'status', 'actions']
+  tablesDisplayedColumns = ['number', 'actions'];
   tablesDataSource = new MatTableDataSource();
-  dishesDisplayedColumns = ['name', 'type', 'price', 'actions']
+  dishesDisplayedColumns = ['name', 'type', 'price', 'actions'];
   dishesDataSource = new MatTableDataSource();
+  showRowButtons = false;
+  showButtonsRowId = null;
   dishes: Dish[] = [
     {
       id: 1,
@@ -155,7 +159,7 @@ export class InventoryHomeComponent implements OnInit {
   @ViewChild('tablesPaginator', {read: MatPaginator}) tablesPaginator: MatPaginator;
   @ViewChild('dishesPaginator', {read: MatPaginator}) dishesPaginator: MatPaginator;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.tablesDataSource = new MatTableDataSource(this.tables);
     this.dishesDataSource = new MatTableDataSource(this.dishes);
   }
@@ -177,6 +181,30 @@ export class InventoryHomeComponent implements OnInit {
   ngOnInit() {
     this.tablesDataSource.paginator = this.tablesPaginator;
     this.dishesDataSource.paginator = this.dishesPaginator;
+  }
+
+  onDelete(row, type: string) {
+    const dialogRef = this.dialog.open(CommonDialogComponent, {
+      data: { title: `Are you sure you want to delete this item ?` },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('u');
+      }
+    });
+  }
+
+  onEdit(row, type: string) {
+    const dialogRef = this.dialog.open(InventoryEditDialogComponent, {
+      data: { title: `EDIT ${type}` },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('u');
+      }
+    });
   }
 
 }
