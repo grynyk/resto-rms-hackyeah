@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UpdateTableDialogComponent } from '../update-table-dialog/update-table-dialog.component';
 import { MatDialog } from '@angular/material';
 import { Table } from '../../../shared/models/table';
+import { ServiceModuleService } from '../../services/service-module.service';
 
 @Component({
   selector: 'app-tables',
@@ -10,72 +11,14 @@ import { Table } from '../../../shared/models/table';
 })
 export class TablesComponent implements OnInit {
 
-  tablesData: Table[] = [
-    {
-      id: 1,
-      number: 1,
-      status: 'empty'
-    },
-    {
-      id: 2,
-      number: 2,
-      status: 'occupied'
-    },
-    {
-      id: 3,
-      number: 3,
-      status: 'served'
-    },
-    {
-      id: 4,
-      number: 4,
-      status: 'occupied'
-    },
-    {
-      id: 5,
-      number: 5,
-      status: 'empty'
-    },
-    {
-      id: 6,
-      number: 6,
-      status: 'served'
-    },
-    {
-      id: 7,
-      number: 7,
-      status: 'occupied'
-    },
-    {
-      id: 8,
-      number: 8,
-      status: 'empty'
-    },
-    {
-      id: 9,
-      number: 9,
-      status: 'empty'
-    },
-    {
-      id: 10,
-      number: 10,
-      status: 'empty'
-    },
-    {
-      id: 11,
-      number: 11,
-      status: 'served'
-    },
-    {
-      id: 12,
-      number: 12,
-      status: 'occupied'
-    },
-  ];
+  tablesData: Table[];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private serviceModuleService: ServiceModuleService) { }
 
   ngOnInit() {
+    this.serviceModuleService.getTablesList().subscribe((res: Table[]) => {
+      this.tablesData = res;
+    });
   }
 
   updateTableDialog(table: Table) {

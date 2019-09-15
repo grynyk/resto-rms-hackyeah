@@ -13,15 +13,16 @@
           </ng-container>
 
           <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef [style.width.px]="200"> </th>
+            <th mat-header-cell *matHeaderCellDef [style.width.px]="200">
+              <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end none">
+                <button mat-raised-button color="accent" (click)="onAdd('table')">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </th>
             <td mat-cell *matCellDef="let row" [style.width.px]="200">
-                <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end none" *ngIf="showRowButtons && showButtonsRowId === row.id">
-                    <button mat-stroked-button (click)="onEdit(row, 'table')">
-                      <mat-icon>edit</mat-icon>
-                      EDIT
-                    </button>
-          
-                    <button mat-stroked-button color="warn" (click)="onDelete(row,'tables')">
+                <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end none">
+                    <button mat-stroked-button color="warn" (click)="onDelete(row,'table')">
                       <mat-icon>delete</mat-icon>
                     </button>
                   </div>
@@ -29,7 +30,7 @@
           </ng-container>
       
           <tr mat-header-row *matHeaderRowDef="tablesDisplayedColumns"></tr>
-          <tr mat-row (mouseover)="showRowButtons = true ; showButtonsRowId = row.id" (mouseleave)="showRowButtons = false; showButtonsRowId = null" *matRowDef="let row; columns: tablesDisplayedColumns;">
+          <tr mat-row *matRowDef="let row; columns: tablesDisplayedColumns;">
           </tr>
         </table>
       
@@ -52,21 +53,32 @@
           <td mat-cell *matCellDef="let row"> {{row.type}} </td>
         </ng-container>
     
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> DESCRIPTION </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef> PRICE </th>
             <td mat-cell *matCellDef="let row"> {{row.price | currency}} </td>
           </ng-container>
 
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef [style.width.px]="200"> </th>
+          <th mat-header-cell *matHeaderCellDef [style.width.px]="200">
+            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end none">
+              <button mat-raised-button color="accent" (click)="onAdd('dish')">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </th>
           <td mat-cell *matCellDef="let row" [style.width.px]="200">
-              <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end none" *ngIf="showRowButtons && showButtonsRowId === row.id">
+              <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end none" *ngIf="showRowButtons && showButtonsRowId === row._id">
                   <button mat-stroked-button (click)="onEdit(row, 'dish')">
                     <mat-icon>edit</mat-icon>
                     EDIT
                   </button>
         
-                  <button mat-stroked-button color="warn" (click)="onDelete(row,'dishes')">
+                  <button mat-stroked-button color="warn" (click)="onDelete(row,'dish')">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </div>
@@ -74,7 +86,7 @@
         </ng-container>
     
         <tr mat-header-row *matHeaderRowDef="dishesDisplayedColumns"></tr>
-        <tr mat-row (mouseover)="showRowButtons = true ; showButtonsRowId = row.id" (mouseleave)="showRowButtons = false; showButtonsRowId = null" *matRowDef="let row; columns: dishesDisplayedColumns;">
+        <tr mat-row (mouseover)="showRowButtons = true ; showButtonsRowId = row._id" (mouseleave)="showRowButtons = false; showButtonsRowId = null" *matRowDef="let row; columns: dishesDisplayedColumns;">
         </tr>
       </table>
       <mat-paginator #dishesPaginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10"></mat-paginator>

@@ -19,6 +19,8 @@ import { CommonDialogComponent } from './components/common-dialog/common-dialog.
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     UiComponentsModule,
     SimpleNotificationsModule.forRoot(),
     NgMaterialMultilevelMenuModule,
@@ -27,6 +29,8 @@ import { CommonDialogComponent } from './components/common-dialog/common-dialog.
     CommonDialogComponent,
     BreadcrumbComponent,
     NgMaterialMultilevelMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
   ], providers: [
     NotificationService
   ],

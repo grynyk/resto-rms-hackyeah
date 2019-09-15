@@ -3,4 +3,5 @@ export class Dish {
     name: string;
     type: string;
     price: number;
+    description: string;
 }

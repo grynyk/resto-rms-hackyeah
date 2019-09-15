@@ -1,8 +1,8 @@
 <div fxLayout="row wrap">
     <mat-card fxFlex="200px" class="table-card"
     (click)="updateTableDialog(table)"
-    [style.backgroundColor]="table.status === 'served' && 'rgba(0,100,0,0.5)'"
-    [style.backgroundColor]="table.status === 'occupied' && 'rgba(128,0,0,0.5)'"
+    [style.backgroundColor]="table.status === 2 && 'rgba(0,100,0,0.5)'"
+    [style.backgroundColor]="table.status === 1 && 'rgba(128,0,0,0.5)'"
 
     *ngFor="let table of tablesData" fxLayout="column">
     <div fxFlex="60" fxLayout="column" fxLayoutAlign="center center">
@@ -10,7 +10,7 @@
                #{{table.number}}
              </div>
           <div fxFlex>
-             {{table.status | uppercase}}
+             {{table.status}}
           </div>
     </div>
        <div fxFlex fxLayoutAlign="center center" class="update-btn">
